@@ -1,4 +1,4 @@
-dic={"cat":"an animal","dog":"an animal"}
+dic={"cat":"an animal","dog":"an animal","aadvark":"an African animal with a long snouth","aback":"surprised"}
 def check():
     d=0
     word1=word.get()
