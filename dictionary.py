@@ -18,7 +18,12 @@ def check():
             meaning.pack()
             end=tk.Button(Resut,text="Done",command=Resut.destroy)
             end.pack()
+
             Resut.mainloop()
+           
+            
+            
+            
             d=1
     if d==0:
         Resut=tk.Tk()
@@ -29,6 +34,7 @@ def check():
         result.pack()
         Return=tk.Button(Resut,text="Try again",command=Resut.destroy)
         Return.pack()
+from PIL import Image, ImageTk
 import tkinter as tk
 
 Input=tk.Tk()
@@ -38,7 +44,8 @@ lab=tk.Label(Input, text='Enter the word:')
 lab.pack()
 word=tk.Entry(Input, justify="left")
 word.pack()
-submit=tk.Button(Input,text="Submit",command=check,)
+photo= ImageTk.PhotoImage(file='school project/search.png')
+submit=tk.Button(Input, width=100,height =100,image=photo,command=check,)
 submit.pack()
 Input.mainloop()
 
