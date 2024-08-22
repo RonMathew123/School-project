@@ -1,12 +1,12 @@
 dic={"cat":"an animal","dog":"an animal","aadvark":"an African animal with a long snouth","aback":"surprised",
-     "abacus":"a frame with beads sliding on wire or rod","abandon":"leave permanantly"}
-def check():
+     "abacus":"a frame with beads sliding on wire or rod","abandon":"leave permanantly"} #the list of words
+def check():  # function when you click search
     d=0
     word1=word.get()
     a="The meaning of the word "
     b=" is "
     for i in dic:
-        if word1.lower()==i:
+        if word1.lower()==i: # run if word found
             Resut=tk.Tk()
             Resut.geometry('500x200')
             Resut.title("Result found")
@@ -25,7 +25,7 @@ def check():
             
             
             d=1
-    if d==0:
+    if d==0: # else
         Resut=tk.Tk()
         Resut.geometry('500x200')
         Resut.title("Result not found")
@@ -37,7 +37,7 @@ def check():
 from PIL import Image, ImageTk
 import tkinter as tk
 
-Input=tk.Tk()
+Input=tk.Tk() # input screen
 Input.geometry('500x200')
 Input.title("Dictionary")
 lab=tk.Label(Input, text='Enter the word:')
