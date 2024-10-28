@@ -16,12 +16,6 @@ def check():
     password1=password.get()
     if username1==username_check and password1==password_check:
         login.destroy()
-        root = tk.Tk()
-        root.title('QR_CODE_GENERATOR')
-        root.geometry('750x750')
-        f=('Times New Roman',25)
-        q=('arial',11)
-
         def generate_qr_code():
     
             student_name = student_name_entry.get()
@@ -69,7 +63,7 @@ def check():
             text['From']= b
             text['To']= a
             text.set_content('hi')
-            with open('E:\\school project\\new\\qr.png', 'rb') as f:
+            with open(save_path, 'rb') as f:
                 file_data= f.read()
                 file_type = imghdr.what(f.name)
                 file_name= f.name
