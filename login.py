@@ -17,7 +17,7 @@ def check():
     if username1==username_check and password1==password_check:
         login.destroy()
         def generate_qr_code():
-    
+            gmail1=Ent.get()
             student_name = student_name_entry.get()
             father_name = father_name_entry.get()
             mother_name = mother_name_entry.get()
@@ -25,7 +25,7 @@ def check():
             selected_section = section_var.get()
 
     
-            if not (student_name and father_name and mother_name and selected_class and selected_section):
+            if not (student_name and father_name and mother_name and selected_class and selected_section and gmail1):
                 messagebox.showwarning("Incomplete Information", "Please fill all fields.")
                 return
 
@@ -56,12 +56,11 @@ def check():
             if save_path:
                 qr_img.save(save_path)
                 messagebox.showinfo("QR Code Saved", f"QR code saved to {save_path}")
-            a=input("enter receiver email")
             b="ronmathew2007@gmail.com"
             text= EmailMessage()
             text['Subject']='bye'
             text['From']= b
-            text['To']= a
+            text['To']= gmail1
             text.set_content('hi')
             with open(save_path, 'rb') as f:
                 file_data= f.read()
@@ -71,7 +70,13 @@ def check():
             with smtplib.SMTP_SSL("smtp.gmail.com", 465) as smtp:
                 smtp.login(b,"hpnw loes eloe vczg")
                 smtp.send_message(text)
-                print("done")
+                root.destroy()
+                done=tk.Tk()
+                done.title("Gmail send successfully")
+                done.geometry("500x200")
+                finish=tk.Label(done,text="WE HAVE SEND THE QR CODE TO YOUR GMAIL ID")
+                finish.pack()
+                done.mainloop()
         root = Tk()
         root.title("Student Information QR Code Generator")
         root.geometry("400x500")
@@ -88,6 +93,10 @@ def check():
         Label(root, text="Mother's Name:").pack(pady=5)
         mother_name_entry = Entry(root, width=40)
         mother_name_entry.pack(pady=5)
+        gmail=tk.Label(root,text="Enter you gmail here:")
+        Ent=tk.Entry(root,width=40)
+        gmail.pack(pady=5)
+        Ent.pack(pady=5)
 
 
         Label(root, text="Select Class:").pack(pady=5)
@@ -102,6 +111,7 @@ def check():
         section_var.set("Select Section")
         section_dropdown = OptionMenu(root, section_var, "A", "B", "C", "D","commerce","humanities")
         section_dropdown.pack(pady=5)
+        
 
 
         Button(root, text="Generate QR Code", command=generate_qr_code).pack(pady=10)
