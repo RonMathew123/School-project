@@ -58,10 +58,10 @@ def check():
                 messagebox.showinfo("QR Code Saved", f"QR code saved to {save_path}")
             b="ronmathew2007@gmail.com"
             text= EmailMessage()
-            text['Subject']='bye'
+            text['Subject']='ANNUAL DAY'
             text['From']= b
             text['To']= gmail1
-            text.set_content('hi')
+            text.set_content('THE QRCORE IS AVAILABLE IN THE ATTACHMENT BELOW')
             with open(save_path, 'rb') as f:
                 file_data= f.read()
                 file_type = imghdr.what(f.name)
